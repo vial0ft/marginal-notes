@@ -567,5 +567,6 @@ list_of_number.map((num)=> num + 1)
 >
 >- [link](https://ru-lambda.livejournal.com/27669.html) - [source](http://people.csail.mit.edu/gregs/ll1-discuss-archive-html/msg03277.html)
 
-to be continue
+
+[<<](https://vial0ft.github.io/marginal-notes/notes/about_fp/fp-i.html) [>>](https://vial0ft.github.io/marginal-notes/notes/about_fp/fp-iii.html)
 
