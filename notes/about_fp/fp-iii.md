@@ -616,7 +616,7 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 [Structure and Interpretation of Computer Programs: JavaScript Edition (MIT Electrical Engineering and Computer Science)](https://www.amazon.com/Structure-Interpretation-Computer-Programs-Engineering-ebook-dp-B094X8316F/dp/B094X8316F) - книжечка, которая, как говорят у нас деревнях - маст хэв.
 
 #### Библиотеки
-[Ramda](https://ramdajs.com/) [Lodash](https://lodash.com/)  - js библиотеки содержащие много полезных для работы функций (безусловно лучше тех, которые написал автор)
+[Ramda](https://ramdajs.com/) [Lodash](https://lodash.com/) - js библиотеки содержащие много полезных для работы функций (безусловно лучше тех, которые написал автор)
 
 #### Видео
 [Functional Design Patterns - Scott Wlaschin](https://youtu.be/srQt1NAHYC0)
@@ -639,3 +639,5 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 - Надеется, что читатель, найдёт здесь, что-то новое, полезное, или интересное
 - Будет рад вопросам, замечаниям, предложениям и словам благодарности
 - Надеется, что читатель моет с мылом руки перед приёмом пищи, чистит зубы утром и вечером, питается преимущественно здоровой и полезной пищей, а также проявляет физическую активность хотя бы иногда, а лучше регулярно.
+
+[<<](https://vial0ft.github.io/marginal-notes/notes/about_fp/fp-ii.html)
