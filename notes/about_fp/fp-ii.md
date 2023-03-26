@@ -15,7 +15,7 @@
 
 ```js
 function sum (a, b) {
-	return a + b
+    return a + b
 } 
 let first = 2
 let second = 3
@@ -60,16 +60,16 @@ first //42
 `sum` получает в качестве аргументов копии **ссылок**, а содержание по этим ссылкам одно и тоже.
 
 ```js
-function sum (a, b) {       	        // +---------------------+
+function sum (a, b) {       	// +---------------------+
 	let old_a = a.value     	// | a (copy of 'first') |-------+
 	a.value = 42            	// +---------------------+       |
-					// | b (copy of 'second')|       |    
+					            // | b (copy of 'second')|       |    
 	return old_a + b.value  	// +---------------------+       V        
-}                           	        //                    |    +-----------+
-					// +--------+---------|--->| value : 2 |
-let first = {"value" : 2}   	        // | first  |         |    +-----------+
-					// +--------+         +--->| value : 3 |
-let second = {"value" : 3}  	        // | second |       +----->+-----------+
+}                           	//                    |    +-----------+
+					            // +--------+---------|--->| value : 2 |
+let first = {"value" : 2}   	// | first  |         |    +-----------+
+					            // +--------+         +--->| value : 3 |
+let second = {"value" : 3}  	// | second |       +----->+-----------+
 	                        	// +--------+-------+
 ```
 
@@ -89,7 +89,7 @@ let second = {"value" : 3}  	        // | second |       +----->+-----------+
 let a = 42;
 
 function get_a() {
- return a
+    return a
 }
 
 get_a() // 42
@@ -113,7 +113,7 @@ map(list, (num) => num * factor) // [5,10,3]
 ```js
 
 function Counter(init_value) {
-	return () => return ++init_value
+    return () => return ++init_value
 }
 
 let increase_and_get = Counter(10)
@@ -129,7 +129,9 @@ increase_and_get() // 13
 Напишем функцию, которая будет проверять одну единицу багажа на соответствие параметрам: 
 ```js
 function is_availiable_baggage(bag, height_limit, width_limit, weight_limit) {
- return bag.height < height_limit && bug.width < width_limit && bag.weight < weight_limit
+    return bag.height < height_limit 
+            && bug.width < width_limit 
+            && bag.weight < weight_limit
 }
 ```
 
@@ -150,7 +152,9 @@ let width_limit = 50.0
 let weight_limit = 30.0
 
 function is_availiable_baggage(bag) {
-  return  bag.height < height_limit && bug.width < width_limit && bag.weight < weight_limit 
+    return  bag.height < height_limit 
+        && bug.width < width_limit 
+        && bag.weight < weight_limit 
 }
 
 filter(bags, is_availiable_baggage)
@@ -166,7 +170,9 @@ filter(bags, is_availiable_baggage)
 
 ```js
 function is_availiable_baggage (height_limit, width_limit, weight_limit){
-	return (bag) => bag.height < height_limit && bug.width < width_limit && bag.weight < weight_limit
+    return (bag) => bag.height < height_limit 
+            && bug.width < width_limit 
+            && bag.weight < weight_limit
 }
 
 
@@ -188,12 +194,21 @@ filter(bags, is_availiable_baggage(height_limit, width_limit, weight_limit))
 Для нашего примера: если нет возможности заранее определить все параметры (`height_limit, width_limit, weight_limit`) можно **каррировать** функцию `is_availiable_baggage` :
 ```js
 function is_availiable_baggage(height_limit) {
-	return (width_limit) => (weight_limit) => (bag) => bag.height < height_limit && bug.width < width_limit && bag.weight < weight_limit
+	return (width_limit) => 
+            (weight_limit) => 
+                (bag) => bag.height < height_limit 
+                        && bug.width < width_limit 
+                        && bag.weight < weight_limit
 }
 
 // или в виде лямбды
 
-const is_availiable_baggage = (height_limit) => (width_limit) => (weight_limit) => (bag) => bag.height < height_limit && bug.width < width_limit && bag.weight < weight_limit
+const is_availiable_baggage = (height_limit) => 
+                    (width_limit) => 
+                        (weight_limit) => 
+                            (bag) => bag.height < height_limit 
+                                    && bug.width < width_limit 
+                                    && bag.weight < weight_limit
 
 ```
 
@@ -211,7 +226,6 @@ filter(bags, is_availiable_baggage(height_limit)(width_limit)(weight_limit))
 let with_hight_limit = is_availiable_baggage(height_limit)
 let with_hight_and_width_limits = with_hight_limit(width_limit)
 let with_hight_and_width_and_weight_limits = with_hight_and_width_limits(weight_limit)
-
 
 filter(bags, with_hight_and_width_and_weight_limits)
 ```
@@ -258,7 +272,8 @@ function chance_of_rain (current_chance_of_rain, is_expired, calcIfExpired) {
 	return is_expired ? calcIfExpired() : current_chance_of_rain;
 }
 // ... где-то дальше в коде
-let new_chance_of_rain = chance_of_rain(current_chance_of_rain, is_expired, () => calcIfExpired(temperature, wetness, ... and_other_wether_params))
+let new_chance_of_rain = chance_of_rain(current_chance_of_rain, is_expired, 
+                        () => calcIfExpired(temperature, wetness, ... and_other_wether_params))
 ```
 
 Что здесь происходит: вместо того, чтобы передать новое значение или аргументы для получения значения - мы передаём **функцию по получению значения**, которая будет выполнена **только в момент вызова**. Таким образом мы избежим ненужных вычислений. Т.е. можно сказать что мы **отложили вычисление**.
@@ -364,7 +379,8 @@ class List {
 	}
 	
 	map(f) {
-		return new List(map(this._list, f)) // `map` здесь это отдельная функция, которую мы написали ранее 
+        // `map` здесь - это отдельная функция, которую мы написали ранее
+		return new List(map(this._list, f))  
 	}
 }
 
@@ -488,7 +504,9 @@ function Date(year, month, day) {
 	return (f)=> f(year, month, day) 
 }
 
-// Если очень хочется можно поместить нижеописанные методы внутрь функции Date - чтобы было совсем похоже на класс.
+// Если очень хочется,
+// можно поместить нижеописанные методы внутрь функции Date,
+// чтобы было совсем похоже на класс.
 function getYear() {
 	return (y,m,d) => y 
 }
@@ -501,8 +519,8 @@ function getDay() {
 	return (y,m,d) => d
 }
 
-// Мутировать текущие значения года, месяца или дня мы не можем ФИЗИЧЕСКИ
-// Поэтому - следите за руками
+// Мутировать текущие значения года, месяца или дня мы не можем ФИЗИЧЕСКИ.
+// Поэтому - "следите за руками" (c)
 function setYear(year) {
 	return (y,m,d) => Date(year, m, d)
 }
@@ -516,7 +534,7 @@ function setDay(day) {
 }
 ```
 
-Поняли фокус - мы вернули новое замыкание с новым стейтом, но для вызывающей стороны ничего не изменилось: такой же интерфейс взаимодействия и неважно - новая это сущность вернулась или старая.
+Поняли фокус? Мы вернули новое замыкание с новым стейтом, но для вызывающей стороны ничего не изменилось: такой же интерфейс взаимодействия и неважно - новая это сущность вернулась или старая.
 
 Давайте проверим:
 
@@ -536,7 +554,8 @@ date(getYear()) // 2022
 // используя функции и замыкания
 date(getYear())
 
-// это настоящий js и не только js, а почти любой язык с классами
+// это настоящий js.
+// И не только js, а почти любой язык с классами
 date.getYear()
 
 ```
@@ -553,7 +572,7 @@ date.getYear()
 // модуль List содержащий функции для работы со списками
 List.map(list_of_numbers, (num)=> num + 1)
 // объект класса List
-list_of_number.map((num)=> num + 1)
+list_of_numbers.map((num)=> num + 1)
 ```
 
 
@@ -568,5 +587,5 @@ list_of_number.map((num)=> num + 1)
 >- [link](https://ru-lambda.livejournal.com/27669.html) - [source](http://people.csail.mit.edu/gregs/ll1-discuss-archive-html/msg03277.html)
 
 
-[◀◀](./fp-i.html) [▶▶](./fp-iii.html)
+[◀◀](./fp-i.html)   [▶▶](./fp-iii.html)
 
