@@ -11,15 +11,15 @@
 
 ```js
 function chaining (value) {
-	return (f) => f(value)
+    return (f) => f(value)
 }
 
 function and_then(value) {
-	return (f) => chaining(f(value))
+    return (f) => chaining(f(value))
 }
 
 function getValue(value) {
-	return value
+    return value
 }
 
 chaining(5)
@@ -89,8 +89,8 @@ function compose_two(a,b) {
 
 ```js
 function sum_and_avg (... numbers) {
-	let sum = reduce(numbers, (a,b) => a + b)
-	return [sum, sum / numbers.length]
+    let sum = reduce(numbers, (a,b) => a + b)
+    return [sum, sum / numbers.length]
 }
 const sum_all = (numbers) => reduce(numbers, (a, b) => a + b)
 let comp_f = compose_two(sum_all, sum_and_avg)
@@ -124,8 +124,8 @@ sum_all(sum_and_avg(1,2,3,4,5)) // 18
 
 ```js
 function sum_and_avg (... numbers) {
-	let sum = reduce(numbers, (a,b) => a + b)
-	return [sum, sum / numbers.length]
+    let sum = reduce(numbers, (a,b) => a + b)
+    return [sum, sum / numbers.length]
 }
 const sum_all = (numbers) => reduce(numbers, (a, b) => a + b)
 const double_it = (x) => x * 2
@@ -143,7 +143,7 @@ comp_f(1,2,3,4,5) // 36
 ```js
 
 function composeTwo(a, b) {
-	return (...args) => a(b(...args))
+    return (...args) => a(b(...args))
 }
 
 function compose(first, ...rest) {
@@ -186,16 +186,13 @@ compose(discr)(4, 5, 6) === discr(4,5,6) // true
 Вполне может быть, что спутник не ответит по каким-то причинам, и тогда сервис вернёт `null` - в этом случае наладить связь невозможно, и мы вернём `null` вызывающему коду.
 
 ```js
-	let first_coords = satelliteService.find("satellite1")
-	if(first_coords == null) {return null}
+let first_coords = satelliteService.find("satellite1")
+if(first_coords == null) {return null}
 
-	let second_coord = satelliteService.find("satellite1")
-	if(second_coord == null) {return null}
+let second_coord = satelliteService.find("satellite1")
+if(second_coord == null) {return null}
 
-	return {
-		first_coords,
-		second_coords
-	}
+return {first_coords,second_coords}
 ```
 
 >Существуют специальные механизмы для действий в таких ситуациях в других языках ([js1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing), [js2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining), [kotlin](https://kotlinlang.org/docs/null-safety.html#safe-calls)), но это механизмы встроенные в сам язык на уровне синтаксиса и операторов, мы же реализуем это на уровне типов.
@@ -213,21 +210,21 @@ compose(discr)(4, 5, 6) === discr(4,5,6) // true
 ```js
 // file Option.js
 class Option {
-	// ограничиваем возможность создавать экземпляр класса Option а-ля абстрактный класс
+    // ограничиваем возможность создавать экземпляр класса Option а-ля абстрактный класс
     constructor() {
         if (this.constructor == Option) {
             throw new Error("You can't use constuctor of class Option")
         }
     }
 
-	// делаем статический метод, через который будет создаваться экземпляр подтипа Option 
+    // делаем статический метод, через который будет создаваться экземпляр подтипа Option 
     static of(value) {
         return new Some(value)
     }
 
-	static ofNullable(maybeNullValue) {
-		return maybeNullValue == null ? None : new Some(maybeNullableValue)
-	} 
+    static ofNullable(maybeNullValue) {
+        return maybeNullValue == null ? None : new Some(maybeNullableValue)
+    } 
 
     isEmpty() {
         return this instanceof Nothing
@@ -245,13 +242,13 @@ class Option {
         return this.isEmpty() ? None : f(this.getValue())    
     }
 
-	getOrDefault(defaultValue) {
-		return this.isEmpty() ? defaultValue : this.getValue() 
-	}
+    getOrDefault(defaultValue) {
+        return this.isEmpty() ? defaultValue : this.getValue() 
+    }
 
-	getOrNull() {
-		return this.getOrDefault(null)
-	}
+    getOrNull() {
+        return this.getOrDefault(null)
+    }
 }
 
 class Some extends Option {
@@ -270,11 +267,11 @@ let None;
 
 class Nothing extends Option {
 
-	// автор нашёл только такой способ в js сделать синглетон
+    // автор нашёл только такой способ в js сделать синглетон
     constructor() {
-		if(None != null) { return None}
-		super()
-}
+        if(None != null) { return None}
+        super()
+    }
 
     getValue() {
         throw new Error("None.getValue()")
@@ -296,10 +293,10 @@ None = new Nothing()
 ```js
 // возврат вызывающему коду
 return Option.ofNullable(satelliteService.find("satellite1"))
-		.flatMap(coord1 => 
-		 Option.ofNullable(satelliteService.find("satellite2"))
-		 .map(coord2 => {coord1, coord2}))
-		.getOrNull()
+        .flatMap(coord1 => 
+            Option.ofNullable(satelliteService.find("satellite2"))
+            .map(coord2 => {coord1, coord2}))
+        .getOrNull()
 ```
 
 Да и это всё. Мы поместили логику проверки на `null` внутрь типа `Option` и теперь можем избежать множественных `if(value == null)`. Более того: в виду специфики реализации `map` и `flatMap` - если в какой-то момент мы получили `None` (т.е. где-то попался `null`) - последующая цепочка вызовов игнорируется.
@@ -310,18 +307,18 @@ return Option.ofNullable(satelliteService.find("satellite1"))
 
 ```js
 return satelliteService.find("satellite1")
-		.flatMap(coord1 => 
-				satelliteService.find("satellite2")
-				.map(coord2 => {coord1, coord2}))
-		.getOrNull()
+        .flatMap(coord1 => 
+                satelliteService.find("satellite2")
+                .map(coord2 => {coord1, coord2}))
+        .getOrNull()
 ```
 
 И если фантазировать дальше: представим - мы договорились с вызывающей наш код стороной, что будем возвращать `Option`, а не `null`:
 ```js
 return satelliteService.find("satellite1")
-		.flatMap(coord1 => 
-				satelliteService.find("satellite2")
-				.map(coord2 => {coord1, coord2}))
+        .flatMap(coord1 => 
+                satelliteService.find("satellite2")
+                .map(coord2 => {coord1, coord2}))
 ```
 
 Сравните все три варианта использующие `Option` с тем, который был изначально, и перейдём к рассмотрению ещё одной очень интересной "обёртки".
@@ -363,8 +360,8 @@ class Either {
     }
 
     getOrDefault(defaultValue) {
-		return this.isRight() ? this.getValue() : defaultValue 
-	}
+        return this.isRight() ? this.getValue() : defaultValue 
+    }
 }
 
 
@@ -425,9 +422,9 @@ class Right extends Either {
 
 ```js
 return satelliteService.find("satellite1")
-		.flatMap(coord1 => 
-				satelliteService.find("satellite2")
-				.map(coord2 => {coord1, coord2}))
+        .flatMap(coord1 => 
+                satelliteService.find("satellite2")
+                .map(coord2 => {coord1, coord2}))
 
 ```
 
@@ -488,13 +485,13 @@ new Right(15).flatMap(x => new Left(42)).map(x => x + 2) // Left(42)
 ```js
 class List {
 
-	//... прочие методы
-	
-	empty = []
+    //... прочие методы
 
-	combine(another_list) {
-		return new List([...this, ...another_list])
-	}
+    empty = []
+
+    combine(another_list) {
+        return new List([...this, ...another_list])
+    }
 }
 ```
 
@@ -504,16 +501,16 @@ class List {
 ```js
 class Option {
 
-	//... прочие методы
-	
-	empty = None
+    //... прочие методы
 
-	combine(another_option) {
-		if (this.isEmpty()) {return another_option}
-		if (another_option.isEmpty()) {return this}
+    empty = None
 
-		return Some(this.getValue() + another_option.getValue()) // !!! 
-	}
+    combine(another_option) {
+        if (this.isEmpty()) {return another_option}
+        if (another_option.isEmpty()) {return this}
+
+        return Some(this.getValue() + another_option.getValue()) // !!! 
+    }
 }
 ```
 
@@ -527,9 +524,9 @@ class Option {
 
 ```js
 return satelliteService.find("satellite1")
-		.flatMap(coord1 => 
-				satelliteService.find("satellite2")
-				.map(coord2 => {coord1, coord2}))
+        .flatMap(coord1 => 
+                satelliteService.find("satellite2")
+                .map(coord2 => {coord1, coord2}))
 ```
 
 Напомним условие - в случае ошибки метод мы решили, что `find` будет возвращать `Left`, в котором у нас будет объект `Error` с полями:
@@ -541,7 +538,7 @@ return satelliteService.find("satellite1")
 Для начала напишем функцию совмещения результата:
 ```js
 function join_coords(coord1, coord2) {
-	return {coord1, coord2}
+    return {coord1, coord2}
 }
 ```
 
@@ -556,8 +553,8 @@ const join_coords = (coord1) => (coord2) => {coord1, coord2}
 
 ```js
 return satelliteService.find("satellite1")        // Right(coord1)
-		.map(join_coords)                         // Right(join_coord(coord1))
-		.map(satelliteService.find("satellite2")) // ERROR!!!
+        .map(join_coords)                         // Right(join_coord(coord1))
+        .map(satelliteService.find("satellite2")) // ERROR!!!
 ```
 
 Произошла ошибка, потому что внутри `Right` находится функция, а в последний `map` приходит значение, т.е. всё наоборот:
@@ -570,13 +567,13 @@ return satelliteService.find("satellite1")        // Right(coord1)
 
 class Either {
 
-	// ... конструктор и остальные методы
-	
-	ap(other) {
-		if (this.isLeft()) {return this}
-		if (other.isLeft()) {return other} 
-		return other.map(this.getValue())
-	}
+    // ... конструктор и остальные методы
+
+    ap(other) {
+        if (this.isLeft()) {return this}
+        if (other.isLeft()) {return other} 
+        return other.map(this.getValue())
+    }
 }
 ```
 
@@ -591,8 +588,8 @@ new Right(x => y => x + y).ap(new Right(5)).ap(new Right(6)).getValue() // 11
 
 ```js
 return new Right(coord1 => coord2 => {coord1, coord2})
-		.ap(satelliteService.find("satellite1"))
-		.ap(satelliteService.find("satellite2"))
+        .ap(satelliteService.find("satellite1"))
+        .ap(satelliteService.find("satellite2"))
 ```
 
 И это всё: теперь два метода выполняются независимо.
