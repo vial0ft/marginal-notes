@@ -72,7 +72,7 @@ tail([1,2,3]) // [2,3]
 
 ```js
 function is_empty(list) {
-	return head(list) == [] || head(list) == null
+    return head(list) == [] || head(list) == null
 }
 ```
 
@@ -185,14 +185,14 @@ len([1,2,3]) // 3
 
 ```js
 function take(list , n) {
-	
-	function take_rec(seq, count_down, acc) {
-		if(is_empty(seq) || count_down == 0) {return acc}
-		return take_rec(tail(seq), --count_down, [...acc, head(seq)]) 
-	}
 
-	if(is_empty(list) || n <= 0) {return []}	
-	return take_rec(list, n, [])
+    function take_rec(seq, count_down, acc) {
+        if(is_empty(seq) || count_down == 0) {return acc}
+        return take_rec(tail(seq), --count_down, [...acc, head(seq)]) 
+    }
+
+    if(is_empty(list) || n <= 0) {return []}
+    return take_rec(list, n, [])
 }
 ```
 
@@ -204,13 +204,13 @@ take([1,2,3], 2) // [1,2]
 
 ```js
 function skip(list, n) {
-	function skip_rec(seq, count_down) {
-		if(is_empty(seq) == 0 || count_down == 0) {return seq}
-		return skip_rec(tail(seq), --count_down)
-	}
+    function skip_rec(seq, count_down) {
+        if(is_empty(seq) == 0 || count_down == 0) {return seq}
+        return skip_rec(tail(seq), --count_down)
+    }
 
-	if(n < 0) {return []}	
-	return skip_rec(list, n, [])
+    if(n < 0) {return []}
+    return skip_rec(list, n, [])
 }
 ```
 
@@ -225,12 +225,12 @@ skip([1,2,3], 2) // [3]
 ```js
 
 function reverse(list) {
-	function rec_reverse(seq, acc) {
-		if (is_empty(seq)) {return acc}
-		return rec_reverse(tail(seq), [head(seq), ... acc])
-	}
-	if(!is_list(list)) {return null}
-	return rec_reverse(list, [])
+    function rec_reverse(seq, acc) {
+        if (is_empty(seq)) {return acc}
+        return rec_reverse(tail(seq), [head(seq), ... acc])
+    }
+    if(!is_list(list)) {return null}
+    return rec_reverse(list, [])
 }
 
 ```
@@ -309,7 +309,7 @@ filter([1,2,3], (el) => el >= 2) // [2,3]
 
 ```js 
 function flatten(list) {
-	return reduce(list, (acc, el) => is_list(el) ? concat(acc, el) : [...acc, el], [])
+    return reduce(list, (acc, el) => is_list(el) ? concat(acc, el) : [...acc, el], [])
 }
 ```
 
@@ -335,13 +335,13 @@ flatten([[1,2], 3, [4,5,6]]) // [1,2,3,4,5,6]
 
 // Наполняем полки в пределах 5 штук
 const fillRandomCount = (el) => Array(Math.floor(Math.random() * 5 + 1))
-								.fill(el)
+                                .fill(el)
 
 const market = {
-	"fruits" : map(['🍌', '🍍', '🥭', '🍐', '🥝'],fillRandomCount),
-	"drinks" : map(['🥛', '🍷', '🧋', '🧉'], fillRandomCount),
-	"vegetables": map(['🥗', '🥦', '🥒', '🫑', '🥕', '🍅'], fillRandomCount),
-	"berries": map(['🫐', '🍓', '🍒', '🍇'], fillRandomCount)
+    "fruits" : map(['🍌', '🍍', '🥭', '🍐', '🥝'],fillRandomCount),
+    "drinks" : map(['🥛', '🍷', '🧋', '🧉'], fillRandomCount),
+    "vegetables": map(['🥗', '🥦', '🥒', '🫑', '🥕', '🍅'], fillRandomCount),
+    "berries": map(['🫐', '🍓', '🍒', '🍇'], fillRandomCount)
 }
 ```
 
@@ -349,17 +349,17 @@ const market = {
 ```js
 const shopList = {
 "fruits" : {
-	'🍌': 3,
-	'🍐': 2
-	},
+    '🍌': 3,
+    '🍐': 2
+    },
 "drinks": {
-	'🥛': 1
-	},
+    '🥛': 1
+    },
 "vegetables" : {
-	'🥦': 3,
-	'🫑': 4,
-	'🥕': 2
-	}
+    '🥦': 3,
+    '🫑': 4,
+    '🥕': 2
+    }
 } 
 ```
 
@@ -411,7 +411,7 @@ console.log(res)
 
 ```js
 function flatMap(list, func) {
-	return reduce(list, (acc, el) => concat(acc, func(el)), [])
+    return reduce(list, (acc, el) => concat(acc, func(el)), [])
 }
 ```
 
