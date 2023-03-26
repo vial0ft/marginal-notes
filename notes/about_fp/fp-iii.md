@@ -50,13 +50,13 @@ chaining(5)
 ```js
 
 function sum(a,b) {
- return a + b
+    return a + b
 }
 // |
 // V
 
 function curring_sum(a) {
-	return (b) => a + b
+    return (b) => a + b
 }
 
 ```
@@ -67,11 +67,11 @@ function curring_sum(a) {
 
 ```js
 finction prirn_args(... args) {
- console.log(args)
+    console.log(args)
 }
 
-print_args(1,2,3,4,5) // [1,2,3,4,5]
-print_args(1,2,3) // [1,2,3]
+print_args(1,2,3,4,5)   // [1,2,3,4,5]
+print_args(1,2,3)       // [1,2,3]
 
 ```
 
@@ -80,9 +80,9 @@ print_args(1,2,3) // [1,2,3]
 Но давайте всё-таки реализуем функционал позволяющий делать композицию функций с использованием `spread`:
 
 ```js
-  function compose_two(a,b) {
+function compose_two(a,b) {
     return (...arg) => a(b(...arg))
-  }
+}
 ```
 
 Проверим на примере:
@@ -138,7 +138,7 @@ comp_f(1,2,3,4,5) // 36
 А если будет больше функций? Неужели придётся писать так? 
 `compose(f, (compose(g, ...... (compose a, b)`
 
-Нет - конечно нет, потому что мы вполне можем создать решение, которое не будет зависеть от количества функций участвующих в композиции:
+Нет - конечно нет. Мы вполне можем создать решение, которое не будет зависеть от количества функций участвующих в композиции:
 
 ```js
 
@@ -147,10 +147,10 @@ function composeTwo(a, b) {
 }
 
 function compose(first, ...rest) {
-  if (rest.length == 0){
-    return (...args) => first(...args)  
-  }
-  return (...args) => reduce(rest, (acc, f) => composeTwo(acc,f), first)(...args) 
+    if (rest.length == 0){
+        return (...args) => first(...args)  
+    }
+    return (...args) => reduce(rest, (acc, f) => composeTwo(acc,f), first)(...args) 
 }
 ```
 
@@ -295,7 +295,7 @@ None = new Nothing()
 
 ```js
 // возврат вызывающему коду
-return Option.ofNullableValue(satelliteService.find("satellite1"))
+return Option.ofNullable(satelliteService.find("satellite1"))
 		.flatMap(coord1 => 
 		 Option.ofNullable(satelliteService.find("satellite2"))
 		 .map(coord2 => {coord1, coord2}))
@@ -324,7 +324,7 @@ return satelliteService.find("satellite1")
 				.map(coord2 => {coord1, coord2}))
 ```
 
-Сравните все три варианта, использующие `Option` с тем который был изначально, и перейдём к рассмотрению ещё одной очень интересной "обёртке".
+Сравните все три варианта использующие `Option` с тем, который был изначально, и перейдём к рассмотрению ещё одной очень интересной "обёртки".
 
 ### `Either`
 
@@ -335,7 +335,7 @@ return satelliteService.find("satellite1")
 > Налево — сказку говорит.
 > ...
 
-`Either` подобно `Option`, только вместо `Some` и `None`, `Either` оперирует подтипами `Left` и `Right`. Где `Left` - условно нежелательная (неуспешная) ветка сценария, а `Right` - желаемая (успешная). Обе ветки содержат в себе дополнительную информацию для своего сценария. И действительно - иногда недостаточно информации о том: успешно или неуспешно прошёл сценарий, как это происходит в случаем с `Option`.
+`Either` подобно `Option`, только вместо `Some` и `None`, `Either` оперирует `Left` и `Right`. Где `Left` - условно нежелательная (неуспешная) ветка сценария, а `Right` - желаемая (успешная). Обе ветки содержат в себе дополнительную информацию для своего сценария. И действительно - иногда недостаточно информации о том: успешно или неуспешно прошёл сценарий, как это происходит в случаем с `Option`.
 
 Вернёмся к нашему примеру со спутниками: было неплохо знать от какого спутника мы не смогли получить координаты и по какой причине.
 
@@ -359,7 +359,7 @@ class Either {
     }
 
     swap() {
-        return this.isRight() ? new Left(this.getValue()) : new Right(this.getValue())
+        return this.isRight() ? new Left(this.getValue()) : this
     }
 
     getOrDefault(defaultValue) {
@@ -415,9 +415,9 @@ class Right extends Either {
 3. Спутник не понимает вашего запроса и просит повторить запрос в корректном формате.
 
 Видите сколько информации мы теряли просто получая `null` или `Optional` ?
-Давайте это исправим. Сделаем допущение, что в случае ошибки у нас будет объект `Error` с полями:
-- `code` - код ошибки;
-- `details` - текстовое сообщение об ошибке;
+Давайте это исправим. Допустим, что в случае ошибки у нас будет объект `Error` с полями:
+- `code` - код ошибки
+- `details` - текстовое сообщение об ошибке
 
 В `satelliteService` мы в свою очередь помещаем объект `Error` в `Left` и возвращаем, а если всё прошло успешно, и мы получили координаты - помещаем объект с координатами в `Right` и возвращаем.
 
@@ -521,7 +521,7 @@ class Option {
 
 #### "A" - аппликатив
 
-[`Аппликатив`](https://en.wikipedia.org/wiki/Applicative_functor) чуть более сложная для понимания штука, мы не выделяли её явно, поэтому стоит остановиться на ней чуть поподробнее. По сути своей `Аппликатив` это [функтор](#ф---функтор) , к которому можно применить другой такой же функтор. Т.е. внутри обёртки содержится не значение, а функция которая может работать со значением другой такой же обёртки. 
+[`Аппликатив`](https://en.wikipedia.org/wiki/Applicative_functor) чуть более сложная для понимания штука, мы не выделяли её явно, поэтому стоит остановиться на ней чуть поподробнее. По сути своей `Аппликатив` это [функтор](#ф---функтор), к которому можно применить другой такой же функтор. Т.е. внутри обёртки содержится не значение, а функция которая может работать со значением другой такой же обёртки. 
 
 Вернёмся к нашей задаче со спутниками, где мы использовали `Either`:
 
@@ -601,9 +601,6 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 
 > Автор не припоминает, чтобы когда-то он явно встречал или использовал аппликативы за время своей работы.  
 
-
-
-
 ## That' s all folks! 
 
 Есть ещё много вещей из мира ФП, не освящённых в рамках этих статей: мемоизация, [ссылочная прозрачность](https://ru.wikipedia.org/wiki/%D0%A1%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C) и почему иммутабельность [не такая уж и "дорогая"](https://blog.klipse.tech/javascript/2021/02/26/structural-sharing-in-javascript.html), при клонировании или модификации структур.
@@ -616,7 +613,7 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 [Structure and Interpretation of Computer Programs: JavaScript Edition (MIT Electrical Engineering and Computer Science)](https://www.amazon.com/Structure-Interpretation-Computer-Programs-Engineering-ebook-dp-B094X8316F/dp/B094X8316F) - книжечка, которая, как говорят у нас деревнях - маст хэв.
 
 #### Библиотеки
-[Ramda](https://ramdajs.com/) [Lodash](https://lodash.com/) - js библиотеки содержащие много полезных для работы функций (безусловно лучше тех, которые написал автор)
+[Ramda](https://ramdajs.com/) [Lodash](https://lodash.com/) [Immutable](https://immutable-js.com/) - js библиотеки содержащие много полезных для работы функций (безусловно лучше тех, которые написал автор)
 
 #### Видео
 [Functional Design Patterns - Scott Wlaschin](https://youtu.be/srQt1NAHYC0)
