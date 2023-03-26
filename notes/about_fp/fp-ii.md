@@ -28,10 +28,10 @@ sum(first, second) // 5
 
 ```js
 function sum (a, b) {
-	let old_a = a
-	a = 42
-	
-	return old_a + b
+    let old_a = a
+    a = 42
+
+    return old_a + b
 } 
 let first = 2
 let second = 3
@@ -45,10 +45,10 @@ first // 2
 Однако есть нюанс - в случае передачи в качестве аргумента чего-то по ссылке произойдёт следующее:
 ```js
 function sum (a, b) {
-	let old_a = a.value
-	a.value = 42
-	
-	return old_a + b.value
+    let old_a = a.value
+    a.value = 42
+
+    return old_a + b.value
 } 
 let first = {"value" : 2}
 let second = {"value" : 3}
@@ -60,17 +60,17 @@ first //42
 `sum` получает в качестве аргументов копии **ссылок**, а содержание по этим ссылкам одно и тоже.
 
 ```js
-function sum (a, b) {       	// +---------------------+
-	let old_a = a.value     	// | a (copy of 'first') |-------+
-	a.value = 42            	// +---------------------+       |
-					            // | b (copy of 'second')|       |    
-	return old_a + b.value  	// +---------------------+       V        
-}                           	//                    |    +-----------+
-					            // +--------+---------|--->| value : 2 |
-let first = {"value" : 2}   	// | first  |         |    +-----------+
-					            // +--------+         +--->| value : 3 |
-let second = {"value" : 3}  	// | second |       +----->+-----------+
-	                        	// +--------+-------+
+function sum (a, b) {           // +---------------------+
+    let old_a = a.value         // | a (copy of 'first') |-------+
+    a.value = 42                // +---------------------+       |
+                                // | b (copy of 'second')|       |    
+    return old_a + b.value      // +---------------------+       V        
+}                               //                    |    +-----------+
+                                // +--------+---------|--->| value : 2 |
+let first = {"value" : 2}       // | first  |         |    +-----------+
+                                // +--------+         +--->| value : 3 |
+let second = {"value" : 3}      // | second |       +----->+-----------+
+                                // +--------+-------+
 ```
 
 Поэтому следует быть осторожным со ссылочными типами данных даже в случае явной передаче их в функцию.
@@ -194,7 +194,7 @@ filter(bags, is_availiable_baggage(height_limit, width_limit, weight_limit))
 Для нашего примера: если нет возможности заранее определить все параметры (`height_limit, width_limit, weight_limit`) можно **каррировать** функцию `is_availiable_baggage` :
 ```js
 function is_availiable_baggage(height_limit) {
-	return (width_limit) => 
+    return (width_limit) => 
             (weight_limit) => 
                 (bag) => bag.height < height_limit 
                         && bug.width < width_limit 
@@ -269,7 +269,7 @@ return is_expired ? calc_chance_of_rain(temperature, wetness, ... and_other_weth
 ```js
 
 function chance_of_rain (current_chance_of_rain, is_expired, calcIfExpired) {
-	return is_expired ? calcIfExpired() : current_chance_of_rain;
+    return is_expired ? calcIfExpired() : current_chance_of_rain;
 }
 // ... где-то дальше в коде
 let new_chance_of_rain = chance_of_rain(current_chance_of_rain, is_expired, 
@@ -298,8 +298,8 @@ list
 ```js
 
 let p = await Promise.resolve(5)
-		.then(x => x + 1)
-		.then(x => x * 10)
+        .then(x => x + 1)
+        .then(x => x * 10)
 // p == 60
 
 ```
@@ -312,23 +312,23 @@ let p = await Promise.resolve(5)
 ```js
 
 class Chainable {
-	constructor(value) {
-		this._value = value
-	}
+    constructor(value) {
+        this._value = value
+    }
 
-	getValue() {
-		return this._value
-	}
-	
-	andThen(f) {
-		this._value = f(this._value)
-		return this
-	}
+    getValue() {
+        return this._value
+    }
+    
+    andThen(f) {
+        this._value = f(this._value)
+        return this
+    }
 //  или `andThen` может выглядеть так:
-// 	andThen(f) {
-//    return new Chainable(f(this._value))	
-//	}
-	  
+//  andThen(f) {
+//    return new Chainable(f(this._value))
+//  }
+  
 }
 
 new Chainable(5)
@@ -343,24 +343,24 @@ new Chainable(5)
 ```js
 
 class List {
-	constructor(list) {
-   	   this._list = list
-	}
-	
-	getValue() {
-		return this._list
-	}
-	
-	andThen(f) {
-		this._list = f(this._list)
-		return this
-	}
+    constructor(list) {
+        this._list = list
+    }
+    
+    getValue() {
+        return this._list
+    }
+    
+    andThen(f) {
+        this._list = f(this._list)
+        return this
+    }
 }
 
 new List([1,2,3])
-	.andThen(list => map(list, (x) => x + 1))
-	.andThen(list => map(list, (x) => x * 10))
-	.getValue() // [20,30,40]
+    .andThen(list => map(list, (x) => x + 1))
+    .andThen(list => map(list, (x) => x * 10))
+    .getValue() // [20,30,40]
 
 ```
 
@@ -370,24 +370,24 @@ new List([1,2,3])
 
 ```js
 class List {
-	constructor(list) {
-   	   this._list = list
-	}
-	
-	getValue() {
-		return this._list
-	}
-	
-	map(f) {
+    constructor(list) {
+        this._list = list
+    }
+    
+    getValue() {
+        return this._list
+    }
+
+    map(f) {
         // `map` здесь - это отдельная функция, которую мы написали ранее
-		return new List(map(this._list, f))  
-	}
+        return new List(map(this._list, f))  
+    }
 }
 
 new List([1,2,3])
-	.map(x => x + 1)
-	.map(x => x * 10)
-	.getValue() // [20,30,40]
+    .map(x => x + 1)
+    .map(x => x * 10)
+    .getValue() // [20,30,40]
 ```
 
 Как говорится вуа-ля. 👍🏻
@@ -408,9 +408,9 @@ new List([1,2,3])
 
 ```js
 function range(from, to) {
-	let init = from == undefined ? 0 : from
-	if (to == undefined) {return () => init++}
-	return () => init < to ? init++ : null
+    let init = from == undefined ? 0 : from
+    if (to == undefined) {return () => init++}
+    return () => init < to ? init++ : null
 }
 ```
 
@@ -423,7 +423,7 @@ let gen = range(from, to);
 
 // сделаем цикл побольше на 2 
 for (let index = from ; index < to + 2; index++) {
-	console.log(gen());
+    console.log(gen());
 }
 ```
 
@@ -450,13 +450,13 @@ null
 
 ```js
 function gen(next, seed) {
-	let init = seed == undefined ? 0 : seed
-	let value = init
-	return () => {
-		let current_value = value
-		value = next(value)
-		return current_value;
-	}
+    let init = seed == undefined ? 0 : seed
+    let value = init
+    return () => {
+        let current_value = value
+        value = next(value)
+        return current_value;
+    }
 }
 ```
 
@@ -466,7 +466,7 @@ let to = 10
 
 let next = gen(i => i + 2, from);
 for (let index = from ; index < to + 2; index++) {
-	console.log(next());
+    console.log(next());
 }
 ```
 
@@ -501,36 +501,36 @@ for (let index = from ; index < to + 2; index++) {
 // date.js
 
 function Date(year, month, day) {
-	return (f)=> f(year, month, day) 
+    return (f)=> f(year, month, day) 
 }
 
 // Если очень хочется,
 // можно поместить нижеописанные методы внутрь функции Date,
 // чтобы было совсем похоже на класс.
 function getYear() {
-	return (y,m,d) => y 
+    return (y,m,d) => y 
 }
 
 function getMonth() {
-	return (y,m,d) => m
+    return (y,m,d) => m
 }
 
 function getDay() {
-	return (y,m,d) => d
+    return (y,m,d) => d
 }
 
 // Мутировать текущие значения года, месяца или дня мы не можем ФИЗИЧЕСКИ.
 // Поэтому - "следите за руками" (c)
 function setYear(year) {
-	return (y,m,d) => Date(year, m, d)
+    return (y,m,d) => Date(year, m, d)
 }
 
 function setMonth(month) {
-	return (y,m,d) => Date(y, month, d)
+    return (y,m,d) => Date(y, month, d)
 }
 
 function setDay(day) {
-	return (y,m,d) => Date(y, m, day)
+    return (y,m,d) => Date(y, m, day)
 }
 ```
 
