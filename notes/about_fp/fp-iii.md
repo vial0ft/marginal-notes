@@ -602,15 +602,17 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 
 ## Полезные ссылочки
 
-#### Книжечки
+[Awesome FP JS](https://github.com/stoeffel/awesome-fp-js) - материалы связанные с FP в javaScript
+
+### Книжечки
 [Mostly adequate guide to FP (in javascript)](https://mostly-adequate.gitbook.io/mostly-adequate-guide/) 
 
 [Structure and Interpretation of Computer Programs: JavaScript Edition (MIT Electrical Engineering and Computer Science)](https://www.amazon.com/Structure-Interpretation-Computer-Programs-Engineering-ebook-dp-B094X8316F/dp/B094X8316F) - книжечка, которая, как говорят у нас деревнях - маст хэв.
 
-#### Библиотеки
+### Библиотеки
 [Ramda](https://ramdajs.com/) [Lodash](https://lodash.com/) [Immutable](https://immutable-js.com/) - js библиотеки содержащие много полезных для работы функций (безусловно лучше тех, которые написал автор)
 
-#### Видео
+### Видео
 [Functional Design Patterns - Scott Wlaschin](https://youtu.be/srQt1NAHYC0)
 [The Functional Programmer's Toolkit - Scott Wlaschin](https://youtu.be/Nrp_LZ-XGsY)
 [Thirteen ways of looking at a Turtle - Scott Wlaschin](https://youtu.be/g06igkxbF78)
