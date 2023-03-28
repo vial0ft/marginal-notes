@@ -589,3 +589,4 @@ list_of_numbers.map((num)=> num + 1)
 
 [◀◀](./fp-i.html)   [▶▶](./fp-iii.html)
 
+> [Нашли ошибку?](https://github.com/vial0ft/marginal-notes/issues/new)
