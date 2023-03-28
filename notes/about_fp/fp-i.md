@@ -475,3 +475,4 @@ let res = flatMap(Object.entries(shopList),
 
  [▶▶](./fp-ii.html)
 
+> [Нашли ошибку?](https://github.com/vial0ft/marginal-notes/issues/new)
