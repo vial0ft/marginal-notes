@@ -602,7 +602,7 @@ return new Right(coord1 => coord2 => {coord1, coord2})
 
 ## That' s all folks! 
 
-Есть ещё много вещей из мира ФП, не освящённых в рамках этих статей: мемоизация, [ссылочная прозрачность](https://ru.wikipedia.org/wiki/%D0%A1%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C) и почему иммутабельность [не такая уж и "дорогая"](https://blog.klipse.tech/javascript/2021/02/26/structural-sharing-in-javascript.html), при клонировании или модификации структур.
+Есть ещё много вещей из мира ФП, не освящённых в рамках этих статей: сопоставлене с образцом (patterrn matching), мемоизация, [ссылочная прозрачность](https://ru.wikipedia.org/wiki/%D0%A1%D1%81%D1%8B%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_%D0%BF%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C) и почему иммутабельность [не такая уж и "дорогая"](https://blog.klipse.tech/javascript/2021/02/26/structural-sharing-in-javascript.html), при клонировании или модификации структур.
 
 ## Полезные ссылочки
 
