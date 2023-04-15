@@ -7,4 +7,4 @@
 3. [“M”, “F”, “A” - words](./notes/about_fp/fp-iii.html)
 
 ## Прочее
-- [Transdusers for js](./transdusers-js.html)
+- [Transdusers for js](./notes/transdusers-js.html)
