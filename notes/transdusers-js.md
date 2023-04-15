@@ -56,7 +56,7 @@ const filter = (pred) =>
 А так же напишем функцию, которая будет редуцировать результат:
 
 ```js
-const reductor = (acc, x) => [...acc, x]
+const reducer = (acc, x) => [...acc, x]
 ```
 
 Проверим:
@@ -64,7 +64,7 @@ const reductor = (acc, x) => [...acc, x]
 ```js
 reduce(
 	[1,2,3,4,5,6,7],
-	map(x => x * x)(reductor),
+	map(x => x * x)(reducer),
 	[]
 )
 // [1,4,9,16,25,36,49]
@@ -82,26 +82,26 @@ const xForm = compose(
 Проверим:
 
 ```js
-reduce([1,2,3,4,5,6,7], xForm(reductor), []) // [ 4, 16, 36 ] 
+reduce([1,2,3,4,5,6,7], xForm(reducer), []) // [ 4, 16, 36 ] 
 ```
 
-Чтобы наглядно увидеть процесс выполнения добавим `console.log` для функций `map`, `filter` и `reductor`. В этом случае, в терминале вывода мы увидим примерно следующее:
+Чтобы наглядно увидеть процесс выполнения добавим `console.log` для функций `map`, `filter` и `reducer`. В этом случае, в терминале вывода мы увидим примерно следующее:
 ```
 mapping 1
 filtering 1
 mapping 2
 filtering 4
-reductor acc=[] x=4
+reducer acc=[] x=4
 mapping 3
 filtering 9
 mapping 4
 filtering 16
-reductor acc=[4] x=16
+reducer acc=[4] x=16
 mapping 5
 filtering 25
 mapping 6
 filtering 36
-reductor acc=[4,16] x=36
+reducer acc=[4,16] x=36
 mapping 7
 filtering 49
 [ 4, 16, 36 ]
@@ -131,9 +131,9 @@ filtering 49
     (filter #(zero? (mod % 2)))
     ))
 
-(def reductor #(conj %1 %2))
+(def reducer #(conj %1 %2))
 
-(reduce (xf reductor) [] [1 2 3 4 5 6 7]) ;; [4, 16, 36]
+(reduce (xf reducer) [] [1 2 3 4 5 6 7]) ;; [4, 16, 36]
 ```
 Но реализация трансдьюсеров, которая есть в стандартной библиотеке языка конечно же выглядит лучше, работает эффективнее и обладает бОльшими возможностями, чем продемонстрированная автором. 
 
