@@ -664,7 +664,7 @@ Z(factorial)(170)
 
 ### Книги 
 - "To Mock a Mockingbird" by Raymond Smullyan - книга с логическими пазлами.
-- "Purely functional data structures" by Chris Okasaki - книга рассказывает как имплементировать на чисто функциональном языке программирования.
+- "Purely functional data structures" by Chris Okasaki - книга рассказывает как имплементировать структуры данных на чисто функциональном языке программирования.
 - "Lambda-Calculus and Combinators, an Introduction" - больше информации касательно топика этой заметки.
 
 ### Видео
