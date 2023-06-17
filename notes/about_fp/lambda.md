@@ -671,5 +671,6 @@ Z(factorial)(170)
 Прочее:
 - [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html) - про "птичек" в haskell
 - [Combinator birds](https://blog.lahteenmaki.net/combinator-birds.html) - большая таблица "птичек"
+- [Кодирование Чёрча](https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%A7%D1%91%D1%80%D1%87%D0%B0) - всё тоже самое что было здесь, только полнее
 
 > [Нашли ошибку?](https://github.com/vial0ft/marginal-notes/issues/new)
