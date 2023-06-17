@@ -669,6 +669,7 @@ Z(factorial)(170)
 
 Видео:
 - ["A Flock of Functions: Lambda Calculus and Combinatory Logic in JavaScript | Gabriel Lebec"](https://www.youtube.com/watch?v=6BnVo7EHO_8) - материал откуда автор заметки в основном брал информацию для заметки.
+
 Прочее:
 - [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html) - про "птичек" в haskell
 - [Combinator birds](https://blog.lahteenmaki.net/combinator-birds.html) - большая таблица "птичек"
