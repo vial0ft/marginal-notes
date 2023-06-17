@@ -6,5 +6,7 @@
 2. [Closures, Curring, Partial function application and friends](./notes/about_fp/fp-ii.html)
 3. [“M”, “F”, “A” - words](./notes/about_fp/fp-iii.html)
 
+[λ-исчисление и комбинаторы](./notes/about_fp/lambda.html)
+
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
