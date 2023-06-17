@@ -662,15 +662,15 @@ Z(factorial)(170)
 
 ## Ссылочки
 
-Книги: 
+### Книги 
 - "To Mock a Mockingbird" by Raymond Smullyan - книга с логическими пазлами.
 - "Purely functional data structures" by Chris Okasaki - книга рассказывает как имплементировать на чисто функциональном языке программирования.
 - "Lambda-Calculus and Combinators, an Introduction" - больше информации касательно топика этой заметки.
 
-Видео:
-- ["A Flock of Functions: Lambda Calculus and Combinatory Logic in JavaScript | Gabriel Lebec"](https://www.youtube.com/watch?v=6BnVo7EHO_8) - материал откуда автор заметки в основном брал информацию для заметки.
+### Видео
+["A Flock of Functions: Lambda Calculus and Combinatory Logic in JavaScript | Gabriel Lebec"](https://www.youtube.com/watch?v=6BnVo7EHO_8) - материал откуда автор заметки в основном брал информацию для заметки.
 
-Прочее:
+### Прочее
 - [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html) - про "птичек" в haskell
 - [Combinator birds](https://blog.lahteenmaki.net/combinator-birds.html) - большая таблица "птичек"
 - [Кодирование Чёрча](https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B4%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_%D0%A7%D1%91%D1%80%D1%87%D0%B0) - всё тоже самое что было здесь, только полнее
