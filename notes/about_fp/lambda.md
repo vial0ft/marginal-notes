@@ -666,6 +666,7 @@ Z(factorial)(170)
 - "To Mock a Mockingbird" by Raymond Smullyan - книга с логическими пазлами.
 - "Purely functional data structures" by Chris Okasaki - книга рассказывает как имплементировать на чисто функциональном языке программирования.
 - "Lambda-Calculus and Combinators, an Introduction" - больше информации касательно топика этой заметки.
+
 Видео:
 - ["A Flock of Functions: Lambda Calculus and Combinatory Logic in JavaScript | Gabriel Lebec"](https://www.youtube.com/watch?v=6BnVo7EHO_8) - материал откуда автор заметки в основном брал информацию для заметки.
 Прочее:
