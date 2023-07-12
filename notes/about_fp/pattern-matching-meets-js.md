@@ -3,7 +3,7 @@
 
 # Несколько слов о ...
 
-**Pattern matching** (aka Сопоставление с примером) - это механизм сравнения значений с определенным примером. Является крайне удобным лаконичным инструментом преимущественно (до недавнего времени) языков программирования (ЯП) претендующих на звание *функциональных* как то [Scala](https://docs.scala-lang.org/tour/pattern-matching.html), [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), [OCaml](https://v2.ocaml.org/manual/patterns.html), [Erlang](https://www.erlang.org/docs/26/reference_manual/patterns.html)(где это вообще один из "языкообразующих" механизмов), [CLisp](https://lispcookbook.github.io/cl-cookbook/pattern_matching.html) и др. Но некоторое время назад этот инструмент в том или ином виде начал появляться и других ЯП.
+**Pattern matching** (aka Сопоставление с образцом) является крайне удобным лаконичным инструментом преимущественно (до недавнего времени) языков программирования (ЯП) претендующих на звание *функциональных* как то [Scala](https://docs.scala-lang.org/tour/pattern-matching.html), [Haskell](https://en.wikibooks.org/wiki/Haskell/Pattern_matching), [OCaml](https://v2.ocaml.org/manual/patterns.html), [Erlang](https://www.erlang.org/docs/26/reference_manual/patterns.html)(где это вообще один из "языкообразующих" механизмов), [CLisp](https://lispcookbook.github.io/cl-cookbook/pattern_matching.html) и др. Но некоторое время назад этот инструмент в том или ином виде начал появляться и других ЯП.
 
 Какую задачу решает pattern matching в программе? Давайте посмотрим на примере из Scala:
 
