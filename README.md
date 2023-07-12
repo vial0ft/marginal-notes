@@ -7,6 +7,7 @@
 3. [“M”, “F”, “A” - words](./notes/about_fp/fp-iii.html)
 
 [λ-исчисление и комбинаторы](./notes/about_fp/lambda.html)
+[Pattern matching meets JS](./notes/aboup_fp/pattern-matching-meets-js.html)
 
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
