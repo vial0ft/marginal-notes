@@ -223,7 +223,7 @@ console.log(result)
 
 ### Массивы
 
-Напишем логику по сопоставлению массивов. Сопоставление будет считаться успешным если один и те же элементы массивов расположены в одном и том же порядке. Но для начала нужно выяснить, что `matchable` это массив. Напишем вспомогательную функцию  `areEveryArray` и затем немного уменьшим количество магии:
+Напишем логику по сопоставлению массивов. Сопоставление будет считаться успешным если одни и те же элементы массивов расположены в одном и том же порядке. Но для начала нужно выяснить, что `matchable` это массив. Напишем вспомогательную функцию  `areEveryArray` и затем немного уменьшим количество магии:
 
 ```js
 function areEveryArray(...maybeArrays) {
@@ -502,10 +502,10 @@ function ca$e(case_pattern, ...guards) {
               }
               
               if(areEveryComplexStruct(matchable, case_pattern) &&
-                            checkComplex(matchable, case_pattern) &&
-                            checkGuards(guards, matchable)) {
-                            return case_func
-                        }
+                checkComplex(matchable, case_pattern) &&
+                checkGuards(guards, matchable)) {
+                return case_func
+              }
               return null            
             }
   }
@@ -587,7 +587,7 @@ match(new A(42))(
 if(!checkPrimitives(matchable_value, value_case_pattern)) return false
 ```
 перестанет работать.
-Давайте это исправим и напишем функцию, которая решает что за экземпляр пере нами и что с ним делать:
+Давайте это исправим и напишем функцию, которая решает что за экземпляр перед нами и что с ним делать:
 ```js
 function chooseCheckFunction(matchable, case_pattern) {
     if(areEveryArray(matchable, case_pattern)) return checkArraysRec
