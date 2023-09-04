@@ -8,6 +8,7 @@
 
 - [λ-исчисление и комбинаторы](./notes/about_fp/lambda.html)
 - [Pattern matching meets JS](./notes/about_fp/pattern-matching-meets-js.html)
+- [Lazy sequences](./notes/about_fp/lazy-seq.html)
 
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
