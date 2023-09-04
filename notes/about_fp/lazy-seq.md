@@ -392,8 +392,7 @@ function task_lazy_piping(arr) {
         // БОЛЕЕ ТОГО !
         $pipe((uniq, f) => uniq.map(f))(x=>x*2),
         $pipe((doubled, sort_f) => doubled.sort(sort_f))((a, b) => a - b),
-        $pipe((s, n) => 
-              s.slice(s.length < n ? 0 : s.length - n))(10)
+        $pipe((s, n) => s.slice(s.length < n ? 0 : s.length - n))(10)
   )
 }
 ```
