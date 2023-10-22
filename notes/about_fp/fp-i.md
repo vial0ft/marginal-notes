@@ -309,7 +309,7 @@ filter([1,2,3], (el) => el >= 2) // [2,3]
 
 ```js 
 function flatten(list) {
-    return reduce(list, (acc, el) => is_list(el) ? concat(acc, el) : [...acc, el], [])
+    return reduce(list, (acc, el) => is_list(el) ? concat(acc, flatten(el)) : [...acc, el], [])
 }
 ```
 
