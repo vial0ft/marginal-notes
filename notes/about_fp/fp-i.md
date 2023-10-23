@@ -309,7 +309,7 @@ filter([1,2,3], (el) => el >= 2) // [2,3]
 
 ```js 
 function flatten(list) {
-    return reduce(list, (acc, el) => is_list(el) ? concat(acc, flatten(el)) : [...acc, el], [])
+    return reduce(list, (acc, el) => is_list(el) ? concat(acc, el) : [...acc, el], [])
 }
 ```
 
@@ -320,6 +320,15 @@ flatten([[1,2], 3, [4,5,6]]) // [1,2,3,4,5,6]
 Что здесь происходит: в списке `list` могут встречаться в качестве элемента как списки, так и "простые" элементы. Если мы встречаем список мы складываем `acc` и `el` в один список; если `el` не список - просто добавляем его. 
 
 > Сможете сделать `flatten`, который убирает ВСЕ уровни вложенности ?
+
+<details>
+  <summary>Ответ</summary>
+<pre> 
+function flatten(list) {
+    return reduce(list, (acc, el) => is_list(el) ? concat(acc, flatten(el)) : [...acc, el], [])
+}
+</pre>
+</details>
 
 ## `flatmap` или `fmap`
 
