@@ -324,8 +324,6 @@ class Chainable {
     
     andThen(f) {
         return new Chainable(f(this._value))
-        this._value = f(this._value)
-        return this
     }
     
 //  или `andThen` может выглядеть так:
