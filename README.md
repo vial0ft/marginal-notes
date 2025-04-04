@@ -10,5 +10,9 @@
 - [Pattern matching meets JS](./notes/about_fp/pattern-matching-meets-js.html)
 - [Lazy sequences](./notes/about_fp/lazy-seq.html)
 
+## Мысли
+
+- [Где моя документация, чувак?](./notes/thoughts/where_is_my_docs/ru/index.html)
+
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
