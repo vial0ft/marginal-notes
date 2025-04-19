@@ -12,7 +12,7 @@
 
 ## Мысли
 
-- [Где моя документация, чувак?](./notes/thoughts/where_is_my_docs/ru/index.html)
+- [Где моя документация, чувак?](./notes/thoughts/where_is_my_docs/ru/index.html) / [Where's my documentation, dude?](./notes/thoughts/where_is_my_docs/en/index.html)
 
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
