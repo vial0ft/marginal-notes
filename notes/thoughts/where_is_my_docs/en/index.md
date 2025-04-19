@@ -9,18 +9,18 @@
 > Any similarities are likely to be completely accidental.
 
 ## So...
-Surely you've had a situation when you've just got a new job and started to dive into a new environment. Regardless of your experience - a year, five years, or this is your first job: you are new here and something is new to you. Of course the more experience you have, the more you find out the familiar things around you: a task tracker, actions, a management hierarchy, colleagues with familiar role names, tools and approaches to development - you've already seen it. But still, the ghost of novelty is in the air and you need to catch it and move it away. You  need to integrate into the flow of processes and solutions for the company and the project and into the system where the project is developing.
+Surely you've experienced starting a new job and diving into a new environment. Regardless of your experience - whether it's a year, five years, or your first job - you are new here, and everything is new to you. Of course the more experience you have, the more you find out the familiar things around you: a task tracker, actions, a management hierarchy, colleagues with familiar role names, tools and approaches to development - you've already seen it. But still, the ghost of novelty is in the air and you need to catch it and move it away. You  need to integrate into the flow of processes and solutions for the company and the project and into the system where the project is developing.
 
-After all, the sooner everything becomes habitual, the sooner you will start to supply **THAT** which the name of managers repeat day after day like a mantra from the sacred manuscriptures on management that name is ingrained in the subconscious and staied there forever - **the business value**.
+After all, the sooner everything becomes habitual, the sooner you'll start delivering what managers repeat daily like a mantra from sacred management scriptures - **business value**.
 
 In other words - **benefits** for the company.
 Everyone is interested in that and you are the first of all. You need that to keep your position and, perhaps, move up. Do you agree?
 
 You go through an onboarding process and colleagues share details about the system:
 
-*"Here we have a presentation layer, here we have a layer for working with the database, here is the business logic... This microservice does that, this one does something else... here is Kafka, here is Redis... Here is a diagram of how this is __aproxiamatly__ related to each other, it's __a little outdated__ but essentially it's correct... And here is all the documentation about the system...."*
+*"Here we have a presentation layer, here we have a layer for working with the database, here is the business logic... This microservice does that, this one does something else... here is Kafka, here is Redis... Here is a diagram of how this is __approximately__ related to each other, it's __a little outdated__ but essentially it's correct... And here is all the documentation about the system...."*
 
-You are presented with a page of the corporate system *Сrowdfluence* ("Thank goodness it's not *Lotion*" - you think) with about fifty sections with subsections with subsections, where the most recent change was six months ago...
+You're presented with a page from the corporate system _Crowdfluence_ (thank goodness it's not _Lotion_, you think), containing about fifty sections and subsections, the most recent update being six months ago...
 
 "At least there IS some documentation here..." - you think, afraid to ask yourself the following questions:
 
@@ -31,15 +31,15 @@ After thinking about it for a bit (and maybe even skimming through some of the d
 
 About a month has passed since you started working on the project. You have begun to understand how some parts of the system work but not everything - the project is quite large, and there is quite a lot of business logic.
 
-One day at a daily meeting you are assigned the task of figuring out a new bug. It is quite an unpleasant bug, but it is not so critical that any of the old-timers collegues would put aside all their work on new features and deal with it. It is assigned to you.
+One day, during a daily meeting, you're assigned the task of investigating a new bug. It is quite an unpleasant bug, but it is not so critical that any of the old-timers collegues would put aside all their work on new features and deal with it. It is assigned to you.
 
 You've spent a day or two on research, but it, unfortunately, does not give you an answer to the question "What is the *cause* for this behavior?".
 You've searched by keywords for the description of domain entities in the project documentation, description of modules that (as you've assumed) contain the cause of the bug, but haven't found answers.
 
-You've spent hours of meditating on the code, switching between files in functions calls places.
+You've spent hours meditating on the code, switching between files and function call locations.
 The code is brilliantly written - it is clear that the people who wrote it tried to adhere to good practices and maintain the quality of codebase. There are tests - there are many of them, and the code coverage rates are extremely high. Each module, each public function is provided with a description. You have tons and tons of information telling you "**what** this or that code does", but you still do not understand "**why** it is implemented this way".
 
-After that, you decide to assaut your colleagues with questions about "why is the implementation like this now?" After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
+After that, you decide to assaut your colleagues with questions like, 'Why is the implementation like this now?' After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
 
 One of your colleagues tells you "I remember that something *related* to that problem was discussed once, and Theodor K. had fixed something, but he quit a long time ago. Here is a *link* to the task. You may get up the context from it..."
 
