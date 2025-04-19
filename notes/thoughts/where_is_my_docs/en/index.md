@@ -39,7 +39,7 @@ You've searched by keywords for the description of domain entities in the projec
 You've spent hours meditating on the code, switching between files and function call locations.
 The code is brilliantly written - it is clear that the people who wrote it tried to adhere to good practices and maintain the quality of codebase. There are tests - there are many of them, and the code coverage rates are extremely high. Each module, each public function is provided with a description. You have tons and tons of information telling you "**what** this or that code does", but you still do not understand "**why** it is implemented this way".
 
-After that, you decide to assault your colleagues with questions like, 'Why is the implementation like this now?' After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
+After that, you decide to bombard your colleagues with questions like, 'Why is the implementation like this now?' After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
 
 One of your colleagues tells you "I remember that something *related* to that problem was discussed once, and Theodor K. had fixed something, but he quit a long time ago. Here is a *link* to the task. You may get up the context from it..."
 
