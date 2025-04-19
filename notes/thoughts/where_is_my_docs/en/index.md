@@ -31,7 +31,7 @@ After thinking about it for a bit (and maybe even skimming through some of the d
 
 About a month has passed since you started working on the project. You have begun to understand how some parts of the system work but not everything - the project is quite large, and there is quite a lot of business logic.
 
-One day, during a daily meeting, you're assigned the task of investigating a new bug. It is quite an unpleasant bug, but it is not so critical that any of the old-timers collegues would put aside all their work on new features and deal with it. It is assigned to you.
+One day, during a daily meeting, you're assigned the task of investigating a new bug. It is quite an unpleasant bug, but it is not so critical that any of the old-timers colleagues would put aside all their work on new features and deal with it. It is assigned to you.
 
 You've spent a day or two on research, but it, unfortunately, does not give you an answer to the question "What is the *cause* for this behavior?".
 You've searched by keywords for the description of domain entities in the project documentation, description of modules that (as you've assumed) contain the cause of the bug, but haven't found answers.
@@ -39,7 +39,7 @@ You've searched by keywords for the description of domain entities in the projec
 You've spent hours meditating on the code, switching between files and function call locations.
 The code is brilliantly written - it is clear that the people who wrote it tried to adhere to good practices and maintain the quality of codebase. There are tests - there are many of them, and the code coverage rates are extremely high. Each module, each public function is provided with a description. You have tons and tons of information telling you "**what** this or that code does", but you still do not understand "**why** it is implemented this way".
 
-After that, you decide to assaut your colleagues with questions like, 'Why is the implementation like this now?' After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
+After that, you decide to assault your colleagues with questions like, 'Why is the implementation like this now?' After all, it's not enough to find a place where the system *deviates from the normal behavior* - you also need to figure out *what is the way of returning the system to the "rails of normal behavior" without breaking anything nearby while you would correct it*.
 
 One of your colleagues tells you "I remember that something *related* to that problem was discussed once, and Theodor K. had fixed something, but he quit a long time ago. Here is a *link* to the task. You may get up the context from it..."
 
@@ -48,7 +48,7 @@ You're following the link and seeing *that*:
 ![the context](../resources/context.png)
 Looks familiar?
 
-After reading the discussion, you realize the fix for the bug was a temporary solution to close an error that occurred as a result of getting data from the third-party service that the system was integrated. More over that you'd came across changes related to this bug and the IDE had showed them.
+After reading the discussion, you realize the fix for the bug was a temporary solution to close an error that occurred as a result of getting data from the third-party service that the system was integrated. Moreover, you'd came across changes related to this bug and the IDE had showed them.
 
 But how were you supposed to know that the temporary solution was supposed to be removed when the external service started sending data the expected way?
 
@@ -71,15 +71,15 @@ Despite all its completeness and verbosity, the documentation describes the syst
 - The idea of ​​the project, the goals and objectives that the project solves (why do we make the project?) - this is the raison d'être[^1] of the system being built. ("earnings" is never the goal of the project. it might be only the owner's  goal)
 - Project requirements (what are the project's limitations?)
 - Roadmap of project (how will the project goals be achieved?)
-These knowledges must be thought out and described **initially**.
+These knowledge must be thought out and described **initially**.
 
 And before you can tell that waterfall is dead and showed its total inefficiency, and that agile is a trendsetter today...
 
 The above is a necessary but not sufficient part for a **LONG-TERM** and **COMPLEX** project. And in case some of that changes, the project must done and start a new one (possibly borrowing something from the existing ones) corresponding to new ideas and goals or new requirements.
 
-Otherwise, it may happen that [Burj Khalifa](https://en.wikipedia.org/wiki/Burj_Khalifa) has just been named as a modest family cafe and is went to change the foundation on which it stands.
+Otherwise, it may happen that [Burj Khalifa](https://en.wikipedia.org/wiki/Burj_Khalifa) has just been named as a modest family cafe and is going to change the foundation on which it stands.
 
-Details about "how" and "what" will be done to achivment of the goals and correspondence of requirements of the design system within the development plan can be supplemented and adjusted. **Only if it does not contradict the basis**. Moreover, new details **MUST** find their place in the documentation.
+Details about "how" and "what" will be done to achievement of the goals and correspondence of requirements of the design system within the development plan can be supplemented and adjusted. **Only if it does not contradict the basis**. Moreover, new details **MUST** find their place in the documentation.
 
 The purpose of documentation is to have ***knowledge*** about the system's operation at hand, and to reflect its current state, for solving work tasks - the notorious **context** - and not to be ***just information*** describing some facts about the system. 
 If you like, then documentation is a augmented roadmap of the system or a navigator with rivers, mountains, roads, showing how to get from point "A" to point "B" **at the current moment in time**, taking into account weather conditions, time of day and traffic on the roads.
