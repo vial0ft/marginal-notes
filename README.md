@@ -13,6 +13,7 @@
 ## Мысли
 
 - [Где моя документация, чувак?](./notes/thoughts/where_is_my_docs/ru/index.html) / [Where's my documentation, dude?](./notes/thoughts/where_is_my_docs/en/index.html)
+- [Грейды, самоопределение и синдром самозванца](./notes/thoughts/imposter/ru/j_m_s.html)
 
 ## Прочее
 - [Transdusers for js](./notes/transdusers-js.html)
